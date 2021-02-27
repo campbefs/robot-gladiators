@@ -29,8 +29,8 @@ var enemyAttack = 12;
 
 
 
-// create functio
-var fight = function() {
+// create function
+var fight = function(enemyName) {
   window.alert("Welcome to Robot Gladiators!")
 
   var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle?  \
@@ -90,12 +90,24 @@ var fight = function() {
     window.alert("You need to choose a valid option. Try again!");
   }
 
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//  * Fight all enemy-robots
+//  * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
+
+
+
 
 };
 
 // execute function
-fight();
+// fight("Roberto");
 
 // var fight = function(enemyName) {
 //   ... // fight function statements
 // }
+
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
