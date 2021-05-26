@@ -156,7 +156,15 @@ var startGame = function() {
 var endGame = function() {
 
   if (playerInfo.health > 0) {
-    window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + ".");
+
+    highScore = localStorage.getItem("robotHighScore");
+    if (playerInfo.money > parseInt(highScore) || !highScore) {
+      localStorage.setItem("robotHighScore", playerInfo.money);
+      window.alert("Great job, you've survived the game! You now have a new high score of " + playerInfo.money + ".");
+    } else if (highScore && playerInfo.money < parseInt(highScore)) {
+      window.alert("Great job, you've survived the game! You have a score of " + playerInfo.money + ". But you did not beat the high score of " + highScore + ".");
+    }
+
   } else {
     window.alert("You've lost your robot in battle.");
   }
